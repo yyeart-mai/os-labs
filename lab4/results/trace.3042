@@ -1,0 +1,107 @@
+execve("./parent", ["./parent"], 0xffffe11b7d38 /* 23 vars */) = 0
+brk(NULL)                               = 0xc75552215000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xe97076a8f000
+faccessat(AT_FDCWD, "/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=24715, ...}) = 0
+mmap(NULL, 24715, PROT_READ, MAP_PRIVATE, 3, 0) = 0xe97076a88000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0\267\0\1\0\0\0\360\206\2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1722920, ...}) = 0
+mmap(NULL, 1892240, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_DENYWRITE, -1, 0) = 0xe97076888000
+mmap(0xe97076890000, 1826704, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xe97076890000
+munmap(0xe97076888000, 32768)           = 0
+munmap(0xe97076a4e000, 32656)           = 0
+mprotect(0xe97076a2a000, 77824, PROT_NONE) = 0
+mmap(0xe97076a3d000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19d000) = 0xe97076a3d000
+mmap(0xe97076a42000, 49040, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xe97076a42000
+close(3)                                = 0
+set_tid_address(0xe97076a8ff90)         = 3042
+set_robust_list(0xe97076a8ffa0, 24)     = 0
+rseq(0xe97076a905e0, 0x20, 0, 0xd428bc00) = 0
+mprotect(0xe97076a3d000, 12288, PROT_READ) = 0
+mprotect(0xc7554a18f000, 4096, PROT_READ) = 0
+mprotect(0xe97076a94000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0xe97076a88000, 24715)           = 0
+write(2, "enter filename for child 1:\n", 28) = 28
+getrandom("\x34\x48\x6b\xe9\x46\x32\xa8\xd0", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0xc75552215000
+brk(0xc75552236000)                     = 0xc75552236000
+fstat(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+read(0, "results/first.txt\n", 1024)    = 18
+write(2, "enter filename for child 2:\n", 28) = 28
+read(0, "results/second.txt\n", 1024)   = 19
+openat(AT_FDCWD, "results/first.txt", O_WRONLY|O_CREAT, 0644) = 3
+openat(AT_FDCWD, "results/second.txt", O_WRONLY|O_CREAT, 0644) = 4
+ftruncate(3, 0)                         = 0
+ftruncate(4, 0)                         = 0
+openat(AT_FDCWD, "/tmp/os-lab4-1-jljIMk", O_RDWR|O_CREAT|O_EXCL, 0600) = 5
+openat(AT_FDCWD, "/tmp/os-lab4-2-GdPwRU", O_RDWR|O_CREAT|O_EXCL, 0600) = 6
+rt_sigprocmask(SIG_BLOCK, [USR1 USR2 TERM CHLD], NULL, 8) = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xe97076a8ff90) = 3043
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xe97076a8ff90) = 3044
+close(3)                                = 0
+close(4)                                = 0
+read(0, "Hello World\n", 1024)          = 12
+getpid()                                = 3042
+write(2, "parent PID=3042: sending line 1,"..., 63) = 63
+ftruncate(5, 12)                        = 0
+mmap(NULL, 12, PROT_READ|PROT_WRITE, MAP_SHARED, 5, 0) = 0xe97076a8e000
+kill(3043, SIGUSR1)                     = 0
+rt_sigtimedwait([USR2 CHLD], {si_signo=SIGUSR2, si_code=SI_USER, si_pid=3043, si_uid=1000}, NULL, 8) = 12 (SIGUSR2)
+munmap(0xe97076a8e000, 12)              = 0
+read(0, "Lorem Ipsum\n", 1024)          = 12
+getpid()                                = 3042
+write(2, "parent PID=3042: sending line 2,"..., 63) = 63
+ftruncate(6, 12)                        = 0
+mmap(NULL, 12, PROT_READ|PROT_WRITE, MAP_SHARED, 6, 0) = 0xe97076a8e000
+kill(3044, SIGUSR1)                     = 0
+rt_sigtimedwait([USR2 CHLD], {si_signo=SIGUSR2, si_code=SI_USER, si_pid=3044, si_uid=1000}, NULL, 8) = 12 (SIGUSR2)
+munmap(0xe97076a8e000, 12)              = 0
+read(0, "ABC\n", 1024)                  = 4
+getpid()                                = 3042
+write(2, "parent PID=3042: sending line 3,"..., 62) = 62
+ftruncate(5, 4)                         = 0
+mmap(NULL, 4, PROT_READ|PROT_WRITE, MAP_SHARED, 5, 0) = 0xe97076a8e000
+kill(3043, SIGUSR1)                     = 0
+rt_sigtimedwait([USR2 CHLD], {si_signo=SIGUSR2, si_code=SI_USER, si_pid=3043, si_uid=1000}, NULL, 8) = 12 (SIGUSR2)
+munmap(0xe97076a8e000, 4)               = 0
+read(0, "\n", 1024)                     = 1
+getpid()                                = 3042
+write(2, "parent PID=3042: sending line 4,"..., 62) = 62
+ftruncate(6, 1)                         = 0
+mmap(NULL, 1, PROT_READ|PROT_WRITE, MAP_SHARED, 6, 0) = 0xe97076a8e000
+kill(3044, SIGUSR1)                     = 0
+rt_sigtimedwait([USR2 CHLD], {si_signo=SIGUSR2, si_code=SI_USER, si_pid=3044, si_uid=1000}, NULL, 8) = 12 (SIGUSR2)
+munmap(0xe97076a8e000, 1)               = 0
+read(0, "123\n", 1024)                  = 4
+getpid()                                = 3042
+write(2, "parent PID=3042: sending line 5,"..., 62) = 62
+ftruncate(5, 4)                         = 0
+mmap(NULL, 4, PROT_READ|PROT_WRITE, MAP_SHARED, 5, 0) = 0xe97076a8e000
+kill(3043, SIGUSR1)                     = 0
+rt_sigtimedwait([USR2 CHLD], {si_signo=SIGUSR2, si_code=SI_USER, si_pid=3043, si_uid=1000}, NULL, 8) = 12 (SIGUSR2)
+munmap(0xe97076a8e000, 4)               = 0
+read(0, "level\n", 1024)                = 6
+getpid()                                = 3042
+write(2, "parent PID=3042: sending line 6,"..., 62) = 62
+ftruncate(6, 6)                         = 0
+mmap(NULL, 6, PROT_READ|PROT_WRITE, MAP_SHARED, 6, 0) = 0xe97076a8e000
+kill(3044, SIGUSR1)                     = 0
+rt_sigtimedwait([USR2 CHLD], {si_signo=SIGUSR2, si_code=SI_USER, si_pid=3044, si_uid=1000}, NULL, 8) = 12 (SIGUSR2)
+munmap(0xe97076a8e000, 6)               = 0
+read(0, "", 1024)                       = 0
+kill(3043, SIGTERM)                     = 0
+kill(3044, SIGTERM)                     = 0
+wait4(3043, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 3043
+write(2, "child PID=3043 exited with code "..., 34) = 34
+wait4(3044, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 3044
+write(2, "child PID=3044 exited with code "..., 34) = 34
+close(5)                                = 0
+unlinkat(AT_FDCWD, "/tmp/os-lab4-1-jljIMk", 0) = 0
+close(6)                                = 0
+unlinkat(AT_FDCWD, "/tmp/os-lab4-2-GdPwRU", 0) = 0
+exit_group(0)                           = ?
++++ exited with 0 +++

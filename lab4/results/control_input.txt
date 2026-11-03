@@ -1,0 +1,8 @@
+../results/first.txt
+../results/second.txt
+Hello World
+Lorem Ipsum
+ABC
+
+123
+level

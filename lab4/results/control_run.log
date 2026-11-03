@@ -1,0 +1,12 @@
+enter filename for child 1:
+enter filename for child 2:
+parent PID=1343: sending line 1, bytes=12 to child 1, PID=1344
+child PID=1344, parent PID=1343
+child PID=1345, parent PID=1343
+parent PID=1343: sending line 2, bytes=12 to child 2, PID=1345
+parent PID=1343: sending line 3, bytes=4 to child 1, PID=1344
+parent PID=1343: sending line 4, bytes=1 to child 2, PID=1345
+parent PID=1343: sending line 5, bytes=4 to child 1, PID=1344
+parent PID=1343: sending line 6, bytes=6 to child 2, PID=1345
+child PID=1344 exited with code 0
+child PID=1345 exited with code 0
