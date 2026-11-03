@@ -6,3 +6,6 @@
 *.dSYM/
 /lab2/src/parent
 /lab2/src/child
+/lab3/filter
+/lab4/src/parent
+/lab4/src/child
